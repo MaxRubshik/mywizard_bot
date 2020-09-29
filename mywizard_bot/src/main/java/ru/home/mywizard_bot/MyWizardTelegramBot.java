@@ -1,5 +1,6 @@
 package ru.home.mywizard_bot;
 
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -11,6 +12,10 @@ public class MyWizardTelegramBot extends TelegramWebhookBot {
     private String webHookPath;
     private String botUserName;
     private String botToken;
+
+    public MyWizardTelegramBot(DefaultBotOptions botOptions) {
+        super(botOptions);
+    }
 
 
     @Override
