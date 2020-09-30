@@ -3,8 +3,10 @@ package ru.home.mywizard_bot.appconfig;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.meta.ApiContext;
 import ru.home.mywizard_bot.MyWizardTelegramBot;
@@ -24,7 +26,7 @@ public class BotConfig {
     private int proxyPort;
 
     @Bean
-    public MyWizardTelegramBot MySuperTelegramBot() {
+    public MyWizardTelegramBot myWizardTelegramBot(TelegramFacade telegramFacade) {
         DefaultBotOptions options = ApiContext
                 .getInstance(DefaultBotOptions.class);
 
@@ -38,5 +40,15 @@ public class BotConfig {
         mySuperTelegramBot.setWebHookPath(webHookPath);
 
         return mySuperTelegramBot;
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource
+                = new ReloadableResourceBundleMessageSource();
+
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
     }
 }

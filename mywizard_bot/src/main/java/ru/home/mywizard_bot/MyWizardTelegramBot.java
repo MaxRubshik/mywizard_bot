@@ -20,16 +20,9 @@ public class MyWizardTelegramBot extends TelegramWebhookBot {
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        if (update.getMessage() != null && update.getMessage().hasText()) {
-            long chat_id = update.getMessage().getChatId();
+        SendMessage replyMessageToUser = telegramFacade.handleUpdate(update);
 
-            try {
-                execute(new SendMessage(chat_id, "Hi " + update.getMessage().getText()));
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
+        return replyMessageToUser;
     }
 
     @Override
