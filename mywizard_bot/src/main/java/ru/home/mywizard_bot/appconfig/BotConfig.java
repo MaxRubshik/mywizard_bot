@@ -10,6 +10,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.meta.ApiContext;
 import ru.home.mywizard_bot.MyWizardTelegramBot;
+import ru.home.mywizard_bot.botapi.TelegramFacade;
 
 @Setter
 @Getter
