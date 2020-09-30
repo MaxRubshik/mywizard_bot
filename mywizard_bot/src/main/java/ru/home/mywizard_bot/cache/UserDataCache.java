@@ -1,7 +1,6 @@
 package ru.home.mywizard_bot.cache;
 
 import org.springframework.stereotype.Component;
-import ru.home.mywizard_bot.appconfig.BotState;
 import ru.home.mywizard_bot.botapi.BotState;
 import ru.home.mywizard_bot.botapi.handlers.fillingprofile.UserProfileData;
 

@@ -1,4 +1,4 @@
-package ru.home.mywizard_bot.appconfig;
+package ru.home.mywizard_bot.botapi;
 
 /**Возможные состояния бота
  */
